@@ -35,10 +35,10 @@
             <!--NAVIGATION-->
                <div class="navigation clearfix">
                   <div class="chats center border-bottom">
-                     <a href="" class="active">CHATS</a>
+                     <a href="" class="">CHATS</a>
                   </div>
                   <div class="users center">
-                     <a href="" class="active">USERS</a>
+                     <a href="" class="">USERS</a>
                   </div>
                </div>
             <!--NAVIGATION-->
@@ -49,48 +49,73 @@
          <!--HEADER PARENT-->
 <!-- =========================================================================================== -->
 <!-- =========================================================================================== -->
+         <!--USER PARENT-->
+         <div class="block section1">
+            <!--USER CONTAINER-->
+            <div class="app-container">
 
-<!-- =========================================================================================== -->
-<!-- =========================================================================================== -->
-         <!--CHATBOX PARENT-->
-         <div class="block chatbox_parent">
-            <div class="chatbox">
-            <img src="images/side copy.png">
-               <p class="addText" id="messages">Hey there! I am using WhatsApp.</p>
+              <!--USER-->
+               <div class="user clearfix" id="profile">
+                  
+               </div>
+              <!--USER-->
+
             </div>
+            <!--USER CONTAINER-->
+         </div>
+         <!--USER PARENT-->
+<!-- =========================================================================================== -->
+<!-- =========================================================================================== -->
+        <div class="section2">
+         <!--CHATBOX PARENT-->
+         <div class="block chatbox_parent" id="messages">
+           
          </div>
          <!--CHATBOX PARENT-->
-<!-- =========================================================================================== -->
-<!-- =========================================================================================== -->
+
          <!--INPUT-TEXTBOX PARENT-->
          <div class="block">
-            <div class="inputBox">
-               <div class="input_parent"><input type="text" name="fname" class="input" id="m" autocomplete="off"></div>
+            <div class="inputBox" id="m">
+               <div class="input_parent"><form><input type="text" name="fname" class="input" autocomplete="off"> </form></div>
                <div class="send"><img src="images/send.png"></div>
             </div>
          </div>
          <!--INPUT-TEXTBOX PARENT-->
+
+         </div>
+<!-- =========================================================================================== -->
 <!-- =========================================================================================== -->
      
       </div>
       <!--MAIN CONTAINER-->
 <!-- =========================================================================================== --> 
+     <script src="/socket.io/socket.io.js"></script>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="/socket.io/socket.io.js"></script>
       <script>
-      $(function () {
-        var socket = io();
-          $('form').submit(function(){
-           socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-          });
-        socket.on('chat message', function(msg){
-            $('#messages').append($('<li>').text(msg));
-          });
-      });
-      </script>
+         $(function () {
+           var socket = io();
+            socket.on('connect', function () {
+                  // body...
+                $( "#profile").append( "<div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /> </div><div class='content'><h2 class='name heading_color P_M0'>Kunika</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div>");
+                 });
+               socket.on('reconnect_attempt', (attemptNumber) => {
+               console.log(attemptNumber);
+               $( "#profile").append( "<div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /> </div><div class='content'><h2 class='name heading_color P_M0'>Kunika</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p>"+ x+" </div>");
+                 });
+           $('form').submit(function(){
+             socket.emit('chat message', $('#m .input_parent input').val());
+             $('#m .input_parent input').val('');
+             return false;
+           });
+           socket.on('chat message', function(msg){
+             $( "#messages").append( "<div class='chatbox'><img src='images/sidecopy.png'><p class='addText'>" + msg +"</p></div>");
+           //  $(".addText").text(m);
+            // m === "";
+             //$('#messages').append($('<p class="addText"> </p>').text());
+           });
+         });
+     </script>
       <script src="js/script.js" type="text/javascript"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>

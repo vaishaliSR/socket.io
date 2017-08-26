@@ -1,23 +1,17 @@
-$(document).ready(function(){
-$(".button_nav").click(function(){
-    $(".xs-hide").slideToggle();
+$(document).ready(function() {
+
+
+	 $(".section1").hide();
+$(".navigation div").click(function () {
+    $(".navigation div").removeClass("border-bottom");
+    // $(".tab").addClass("active"); // instead of this do the below 
+    $(this).addClass("border-bottom");   
+});
+$(".navigation div").click(function () {
+    $(".section1").toggle();
+    // $(".tab").addClass("active"); // instead of this do the below 
+    $(".section2").toggle();   
+    $("body").toggleClass("bg_none");
 });
 });
-$(document).on("scroll", function(){
-if(($(window).width() > 987)&& ($(document).scrollTop() > 100))
-	{
-$(".design_pattern").css("position", "fixed");
-$(".design_pattern").css("z-index", "100");
-$(".design_pattern").css("width", "100%");
-$(".design_pattern").css("top", "0px");
-	
-
-}
-else
-{
-$(".design_pattern").css("position", "static");
-
-}
-});
-
 

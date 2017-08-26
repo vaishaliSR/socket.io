@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'html')));
 
 io.on('connection', function(socket){
   console.log('user connected');
+  io.emit('this', { will: 'be received by everyone'});
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
