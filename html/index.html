@@ -75,10 +75,13 @@
 
          <!--INPUT-TEXTBOX PARENT-->
          <div class="block">
+         <form>
             <div class="inputBox" id="m">
-               <div class="input_parent"><form><input type="text" name="fname" class="input" autocomplete="off"> </form></div>
-               <div class="send"><img src="images/send.png"></div>
+               <div class="input_parent"><input type="text" name="fname" class="input" autocomplete="off"> </div>
+              <div class="send"> <button> <img src="images/send.png"></button></div>
+              
             </div>
+            </form>
          </div>
          <!--INPUT-TEXTBOX PARENT-->
 
@@ -96,13 +99,10 @@
          $(function () {
            var socket = io();
             socket.on('connect', function () {
-                  // body...
+                 
                 $( "#profile").append( "<div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /> </div><div class='content'><h2 class='name heading_color P_M0'>Kunika</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div>");
                  });
-               socket.on('reconnect_attempt', (attemptNumber) => {
-               console.log(attemptNumber);
-               $( "#profile").append( "<div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /> </div><div class='content'><h2 class='name heading_color P_M0'>Kunika</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p>"+ x+" </div>");
-                 });
+
            $('form').submit(function(){
              socket.emit('chat message', $('#m .input_parent input').val());
              $('#m .input_parent input').val('');

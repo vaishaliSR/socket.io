@@ -5,13 +5,25 @@ $(document).ready(function() {
 $(".navigation div").click(function () {
     $(".navigation div").removeClass("border-bottom");
     // $(".tab").addClass("active"); // instead of this do the below 
-    $(this).addClass("border-bottom");   
+    $(this).toggleClass("border-bottom");   
 });
 $(".navigation div").click(function () {
-    $(".section1").toggle();
+	//$(".section1").show();
+	if(this.className === "users center border-bottom"){
+     $(".section1").show();
+     $(".section2").hide();
+     $("body").addClass("bg_none");
+
+	}
+	else if(this.className === "chats center border-bottom"){
+     $(".section1").hide();
+     $(".section2").show();
+     $("body").removeClass("bg_none");
+	}
+    //$(".section1").toggle();
     // $(".tab").addClass("active"); // instead of this do the below 
-    $(".section2").toggle();   
-    $("body").toggleClass("bg_none");
+   // $(".section2").toggle();   
+    
 });
 });
 

@@ -72,6 +72,12 @@ body{
 .bg_none{
     background: none;
 }
+
+button {
+    background: none;
+    border: none;
+    outline: none;
+}
 /*===========================================================================
 ************************* UNIVERSAL CLASSES *********************************
 ===========================================================================*/
@@ -172,7 +178,7 @@ body{
 }
 
 .inputBox{
-    width: 98%;
+    width: 99.5%;
     margin: 0 0.5% auto;
     bottom: 0;
     position: absolute;
