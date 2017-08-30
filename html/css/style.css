@@ -2,12 +2,12 @@
 ************************* UNIVERSAL CLASSES *********************************
 ===========================================================================*/
 
-/* FONT EMBEDDING 
+/* FONT EMBEDDING */
 @font-face {
-    font-family: 'Myriad Pro';
-    src: url('../fonts/MyriadPro-Regular.otf'); 
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto-Regular.woff'); 
 }
-*/
+
 /* MAIN WIDTH CONTAINER */
 .app-container{
         margin: auto;
@@ -114,6 +114,10 @@ button {
     width: 50%;
     float: right;
     padding-bottom: 15px;
+}
+
+.navigation div p{
+    cursor: pointer;
 }
 
 .icon_child{
@@ -226,9 +230,6 @@ button {
 
 }
 
-@media only screen and (min-width:770px) and (max-width: 994px) {
- 
-}
 /*===========================================================================
 ***************************** MEDIA QUERY ********************************
 ===========================================================================*/

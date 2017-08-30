@@ -17,6 +17,8 @@
       <div class="block">
 
 <!-- =========================================================================================== -->
+<!-- *************************************** HEADER ******************************************** -->
+<!-- =========================================================================================== -->
          <!--HEADER PARENT-->
          <div class="block green shadow">
          <!--HEADER CONTAINER-->
@@ -35,10 +37,10 @@
             <!--NAVIGATION-->
                <div class="navigation clearfix">
                   <div class="chats center border-bottom">
-                     <a href="" class="">CHATS</a>
+                     <p class="">CHATS</p>
                   </div>
                   <div class="users center">
-                     <a href="" class="">USERS</a>
+                     <p class="">USERS</p>
                   </div>
                </div>
             <!--NAVIGATION-->
@@ -48,6 +50,7 @@
          </div>
          <!--HEADER PARENT-->
 <!-- =========================================================================================== -->
+<!-- ************************************ SECTION - 1 ****************************************** -->
 <!-- =========================================================================================== -->
          <!--USER PARENT-->
          <div class="block section1">
@@ -56,7 +59,7 @@
 
               <!--USER-->
                <div class="user clearfix" id="profile">
-                  
+
                </div>
               <!--USER-->
 
@@ -65,6 +68,7 @@
          </div>
          <!--USER PARENT-->
 <!-- =========================================================================================== -->
+<!-- ************************************ SECTION - 2 ****************************************** -->
 <!-- =========================================================================================== -->
         <div class="section2">
          <!--CHATBOX PARENT-->
@@ -91,15 +95,23 @@
      
       </div>
       <!--MAIN CONTAINER-->
+
 <!-- =========================================================================================== --> 
+      <!-- JS -->
+
      <script src="/socket.io/socket.io.js"></script>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <!-- jQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script>
+      var arr = [];
          $(function () {
            var socket = io();
+           //var self = window;console.log(self);
             socket.on('connect', function () {
-                 
+              var id =self.io.managers[Object.keys(self.io.managers)].connecting[0].id;
+              arr.push(id);
+              console.log(arr);
+                 // to add profiles
                 $( "#profile").append( "<div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /> </div><div class='content'><h2 class='name heading_color P_M0'>Kunika</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div>");
                  });
 
@@ -108,13 +120,13 @@
              $('#m .input_parent input').val('');
              return false;
            });
+
+           // to add messages
            socket.on('chat message', function(msg){
              $( "#messages").append( "<div class='chatbox'><img src='images/sidecopy.png'><p class='addText'>" + msg +"</p></div>");
-           //  $(".addText").text(m);
-            // m === "";
-             //$('#messages').append($('<p class="addText"> </p>').text());
            });
          });
+
      </script>
       <script src="js/script.js" type="text/javascript"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
