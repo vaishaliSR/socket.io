@@ -8,19 +8,44 @@ var http = require('http').Server(app);
 
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
+var idArray = [];
 // Routing
 app.use(express.static(path.join(__dirname, 'html')));
 
 
 io.on('connection', function(socket){
+	var id =  socket.id;
+  idArray.push(id);
   console.log('user connected');
-  io.emit('this', { will: 'be received by everyone'});
-  socket.on('chat message', function(msg){
+    socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
-  socket.on('disconnect', function(){
+  socket.on('disconnect', function(dis){
     console.log('user disconnected');
+    for(i=0; i<idArray.length; i++){
+    if(socket.id === idArray[i]){
+     var index =  idArray.indexOf(idArray[i]);
+     idArray.splice(index, 1);
+     console.log(idArray);
+    }
+    }
+    
+  /*if(dis){
+  	arr = [];
+  	x =0;
+   	console.log(dis);
+   	var val = arr.indexOf(this);
+  	console.log(val);
+  	arr.splice(val, 1);
+  }*/
+
+
   });
+  socket.on('reconnect', function(dis){   
+  });
+  console.log(idArray);
+  console.log(socket.rooms);
+
 });
 
 http.listen(3000, function(){

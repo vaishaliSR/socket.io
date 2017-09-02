@@ -1,0 +1,1 @@
+http://radzserg.com/2014/11/18/socket-io-how-rooms-works-and-another-chat-example/ - link for idea
