@@ -32,6 +32,7 @@ io.on('connection', function(socket){
     console.log('user disconnected');
     for(i=0; i<idArray.length; i++){
     //console.log("run");
+    
     if(socket.id === idArray[i].id){
       console.log(idArray[i]);
      var index =  idArray.indexOf(idArray[i]);
@@ -44,16 +45,6 @@ io.on('connection', function(socket){
 
     }
     }
-    
-  /*if(dis){
-  	arr = [];
-  	x =0;
-   	console.log(dis);
-   	var val = arr.indexOf(this);
-  	console.log(val);
-  	arr.splice(val, 1);
-  }*/
-
 
   });
   socket.on('reconnect', function(dis){  

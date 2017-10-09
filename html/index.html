@@ -20,7 +20,7 @@
 <!-- *************************************** HEADER ******************************************** -->
 <!-- =========================================================================================== -->
          <!--HEADER PARENT-->
-         <div class="block green shadow">
+         <div class="block green">
          <!--HEADER CONTAINER-->
             <div class="app-container">
 
@@ -71,6 +71,10 @@
 <!-- ************************************ SECTION - 2 ****************************************** -->
 <!-- =========================================================================================== -->
         <div class="section2">
+
+          <div class="userInfoheader">
+            
+          </div>
          <!--CHATBOX PARENT-->
          <div class="block chatbox_parent" id="messages">
            
@@ -79,6 +83,7 @@
 
          <!--INPUT-TEXTBOX PARENT-->
          <div class="block">
+
          <form>
             <div class="inputBox" id="m">
                <div class="input_parent"><input type="text" name="fname" class="input" autocomplete="off"> </div>
@@ -111,6 +116,7 @@
               // FETCHING JSON DATA
                   $.getJSON('data.json', function(ids){
                     // STORING JSON DATA TO LOCAL STORAGE
+                      console.log(ids);
                    localStorage.setItem('ids', JSON.stringify(ids));
                    var userId = JSON.parse(localStorage.getItem('ids')); 
 
@@ -121,13 +127,13 @@
                 // APPENDIND THE NEW DATA/PROFILES TO HTML
                 for(i=newUser.length-1; i<newUser.length; i++){
                  // to add profiles
-                  $( "#profile").append("<div class='clearfix'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + newUser[i].id + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
+                  $( "#profile").append("<div class='clearfix' onclick='chatTab()'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + newUser[i].id + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
                  }
                     });
 
                  for(i=0; i<userId.length; i++){
                  // to add profiles
-                  $( "#profile").append("<div class='clearfix'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + userId[i].id + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
+                  $( "#profile").append("<div class='clearfix' onclick='chatTab()'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + userId[i].id + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
                  }
 
                    });

@@ -46,7 +46,7 @@ body{
 }
 
 .green{
-    background: #006256;
+    background: #054d44;
 }
 
 .shadow{
@@ -215,7 +215,27 @@ button {
     border-radius: 25px;
 }
 
+.userInfoheader{
+    width: 100%;
+}
 
+.userInfo{
+    width: 100%;
+    background: #075e54;
+    padding: 20px 0;
+}
+
+.userName {
+    font-size: 27px;
+    width: 91%;
+    float: right;
+    padding: 1.1% 0;
+}
+ .closeChat{
+    float: right;
+    padding: 0px 20px 0 0;
+    cursor: pointer;
+}
 /*===========================================================================
 *****************************CUSTOM CLASSES ********************************
 ===========================================================================*/
