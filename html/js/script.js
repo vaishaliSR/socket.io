@@ -26,14 +26,14 @@ $(".navigation div").click(function () {
 
 });
 // CHAT TAB FUNCTION - PROFILES TAB
-function chatTab(){
-    console.log("hi");
+function chatTab(id){
+    //console.log(data);
      $(".section1").hide();
      $(".section2").show();
      $("body").removeClass("bg_none");
      $(".green").removeClass("shadow");
     $(".navigation div").toggleClass("border-bottom");  
-    $( ".userInfoheader").append("<div class='userInfo clearfix'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div> <div class='userName'>id <span class='closeChat' onclick='remove()'> X </span></div></div>");
+    $( ".userInfoheader").append("<div class='userInfo clearfix'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div> <div class='userName'>"+id+" <span class='closeChat' onclick='remove()'> X </span></div></div>");
 }
 function remove(){
     $( ".userInfo").remove();

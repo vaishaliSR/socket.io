@@ -127,13 +127,13 @@
                 // APPENDIND THE NEW DATA/PROFILES TO HTML
                 for(i=newUser.length-1; i<newUser.length; i++){
                  // to add profiles
-                  $( "#profile").append("<div class='clearfix' onclick='chatTab()'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + newUser[i].id + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
+                  $("#profile").append("<div class='clearfix' id ="+newUser[i].id+" onclick='chatTab(this.id)'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + newUser[i].id  + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
                  }
                     });
 
                  for(i=0; i<userId.length; i++){
                  // to add profiles
-                  $( "#profile").append("<div class='clearfix' onclick='chatTab()'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + userId[i].id + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
+                  $( "#profile").append("<div class='clearfix' id ="+userId[i].id+"  onclick='chatTab(this.id)'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + userId[i].id + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
                  }
 
                    });
@@ -152,6 +152,7 @@
            });
           // console.log(idArray);
          });
+
 
      </script>
       <script src="js/script.js" type="text/javascript"></script>
