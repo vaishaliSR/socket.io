@@ -11,22 +11,36 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 var idArray = [];
 
-
 // Routing
-app.use(express.static(path.join(__dirname, 'html')));
-
+app.use(express.static(path.join(__dirname, 'html')));j
 
 io.on('connection', function(socket){
 	var id =  socket.id;
-  idArray.push({id : id});
+  idArray.push({id : id, clickedId: 0});
 
   fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
     console.log(fs.readFileSync("./html/data.json").toString());
 
   console.log('user connected');
     socket.on('chat message', function(msg){
+    //io.emit('chat message', msg);
+    //var check = JSON.parse(localStorage.ids);
+    /////////////////////////////////////////////////////////
+    
+      fs.readFileSync("./html/data.json");
+      fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
+    for(var i=0; i<idArray.length; i++){
+       if(id == idArray[i].id && idArray[i].clickedId != 0){
+          // io.emit('chat message', msg);
+           console.log(idArray[i].clickedId);
+     io.to(idArray[i].clickedId).emit('chat message', msg);
+
+       }
+    }
     io.emit('chat message', msg);
-     socket.to(id).emit('hey', 'I just met you');
+    ///////////////////////////////////////////////////////// 
+    // console.log(idArray[idArray.length-1].id);
+    // socket.to(id).emit('hey', 'I just met you');
   });
   socket.on('disconnect', function(dis){
     console.log('user disconnected');
