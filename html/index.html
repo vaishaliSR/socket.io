@@ -126,10 +126,13 @@
                       console.log(data.newValue);
                       //debugger;
                 // APPENDIND THE NEW DATA/PROFILES TO HTML
+                if(newUser.length != userId.length){
                 for(i=newUser.length-1; i<newUser.length; i++){
                  // to add profiles
                   $("#profile").append("<div class='clearfix' id ="+newUser[i].id+" onclick='chatTab(this.id)'><div class='picture'><img src='images/profilePicture_sm.jpg' alt='' /></div><div class='content'><h2 class='name heading_color P_M0'>" + newUser[i].id  + "</h2><p class='status text_color P_M0'>Hey there! I am using WhatsApp.</p> </div></div>");
                  }
+
+                }
                     });
 
                  for(i=0; i<userId.length; i++){
@@ -153,7 +156,7 @@
              $( "#messages").append( "<div class='chatbox'><img src='images/sidecopy.png'><p class='addText'>"+ msg +"</p></div>");
              //console.log(localStorage.ids);
            });
-           var check = JSON.parse(localStorage.ids);
+          // var check = JSON.parse(localStorage.ids);
           // console.log(check[check.length-1].id);
          // socket.to(check[check.length-1].id).emit('hey', 'I just met you');
           // console.log(idArray);

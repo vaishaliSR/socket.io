@@ -10,34 +10,45 @@ var fs = require('fs');
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 var idArray = [];
+var clickedId = "";
 
 // Routing
-app.use(express.static(path.join(__dirname, 'html')));j
+app.use(express.static(path.join(__dirname, 'html')));
 
 io.on('connection', function(socket){
 	var id =  socket.id;
   idArray.push({id : id, clickedId: 0});
 
   fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
-    console.log(fs.readFileSync("./html/data.json").toString());
+    //console.log(fs.readFileSync("./html/data.json").toString());
 
-  console.log('user connected');
+    socket.on('chat tab', function(id){
+      //fs.readFileSync("./html/data.json");
+      fs.writeFileSync("./html/data.json", JSON.stringify(id, null));
+      idArray = id;
+    //console.log(id, idArray);
+    });
+  socket.on('clicked id', function(clickedid){
+    //console.log(clickedid, "clickedid");
+    clickedId = clickedid;
+  });
+    console.log('user connected');
     socket.on('chat message', function(msg){
+      console.log(clickedId);
     //io.emit('chat message', msg);
     //var check = JSON.parse(localStorage.ids);
+
+          // console.log(idArray , "hi");
     /////////////////////////////////////////////////////////
-    
-      fs.readFileSync("./html/data.json");
-      fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
-    for(var i=0; i<idArray.length; i++){
-       if(id == idArray[i].id && idArray[i].clickedId != 0){
+
+  for(var i=0; i<idArray.length; i++){
+       if(idArray[i].id == clickedId && idArray[i].clickedId != 0){
           // io.emit('chat message', msg);
-           console.log(idArray[i].clickedId);
-     io.to(idArray[i].clickedId).emit('chat message', msg);
+          console.log(idArray[i]);
+     io.to(idArray[i].id).emit('chat message', msg);
 
        }
     }
-    io.emit('chat message', msg);
     ///////////////////////////////////////////////////////// 
     // console.log(idArray[idArray.length-1].id);
     // socket.to(id).emit('hey', 'I just met you');

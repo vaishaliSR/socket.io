@@ -27,12 +27,15 @@ $(".navigation div").click(function () {
 });
 // CHAT TAB FUNCTION - PROFILES TAB
 function chatTab(id){
+    var socket = io();
     var js = JSON.parse(localStorage.ids);
     for(i=0; i<js.length; i++){
        if(js[i].id === id){
         js[i].clickedId = id;
+        
+    socket.emit('clicked id', id);
        // var x = js[i].clickedId;
-        console.log(js[i].id, js[i].clickedId);
+        //console.log(js[i].id, js[i].clickedId);
        }
       //  console.log(js[i].id, js[i].clickedId);
      //  JSON.parse(js);
@@ -41,23 +44,14 @@ function chatTab(id){
 
     }
     localStorage.setItem("ids", JSON.stringify(js));
-    var data = JSON.parse(localStorage.getItem('ids'))
-    ///////////////////////////////////////////////////
-  /*  var x = new XMLHttpRequest();
+    var parsedId = JSON.parse(localStorage.ids);
+    console.log(parsedId);
+    socket.emit('chat tab', parsedId);
+    //JSON.parse();
 
-  x.onreadystatechange = function(){
-    if( x.status === 200 && x.readyState === 4) {
-      // Optional callback for when request completes
-      console.log(x.responseText);
-    }
-  }
 
-  x.open('POST', '/data.json', true);
-  x.send(data); */
-    ///////////////////////////////////////////////////
-
-    console.log(js);
-    console.log(localStorage.ids);
+   // console.log(js);
+   // console.log(localStorage.ids);
    // console.log(js);
      $(".section1").hide();
      $(".section2").show();
