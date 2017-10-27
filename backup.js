@@ -1,0 +1,1 @@
+<div class='chatbox'><img src='images/sidecopy.png'><p class='addText'>"+ msg +"</p></div>

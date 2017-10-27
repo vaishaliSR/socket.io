@@ -145,7 +145,7 @@ button {
     padding: 20px 0px;
 }
 
-.picture{
+.picture {
     width: 6%;
     float: left;
     text-align: center;
@@ -155,7 +155,28 @@ button {
     width: 91%;
     float: right;
     border-bottom: 1px solid #ededed;
-    padding: 1% 0px 2% 0%;
+    padding: 1% 0px 1% 0%;
+}
+
+#messageNumber {
+    width: 4%;
+    float: right;
+    padding: 6px 0px;
+}
+
+#number {
+    color: white;
+    font-size: 30px;
+    border: 1px solid #07d25f;
+    border-radius: 100%;
+    text-align: center;
+    background: #07d25f;
+    padding: 0px 10px;
+}
+
+.userPro {
+    width: 85%;
+    float: left;
 }
 
 .name {

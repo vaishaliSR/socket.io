@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'html')));
 
 io.on('connection', function(socket){
 	var id =  socket.id;
-  idArray.push({id : id, clickedId: 0});
+  idArray.push({id : id, clickedId: 0, text :[]});
 
   fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
     //console.log(fs.readFileSync("./html/data.json").toString());
@@ -33,8 +33,8 @@ io.on('connection', function(socket){
     clickedId = clickedid;
   });
     console.log('user connected');
-    socket.on('chat message', function(msg){
-      console.log(clickedId);
+    socket.on('chat push', function(msg){
+      //console.log(clickedId);
     //io.emit('chat message', msg);
     //var check = JSON.parse(localStorage.ids);
 
@@ -43,10 +43,12 @@ io.on('connection', function(socket){
 
   for(var i=0; i<idArray.length; i++){
        if(idArray[i].id == clickedId && idArray[i].clickedId != 0){
+        
           // io.emit('chat message', msg);
-          console.log(idArray[i]);
-     io.to(idArray[i].id).emit('chat message', msg);
-
+          //console.log(idArray[i]);
+     io.to(idArray[i].id).emit('chat message');
+     io.to(idArray[i].id).emit('chat push', msg);
+     console.log(msg);
        }
     }
     ///////////////////////////////////////////////////////// 

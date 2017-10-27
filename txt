@@ -1,1 +1,7 @@
 http://radzserg.com/2014/11/18/socket-io-how-rooms-works-and-another-chat-example/ - link for idea
+
+TODAY'S TASK
+ 1. - When sender is sending the message it should not go to the chat box :
+     - we will add up a number to the row of sender's id.
+     - when reciever clicks on the id then only chat box opens up with the sender's message.
+     - while clicking on the id the clicked id of the reciever would change with the sender's id.
