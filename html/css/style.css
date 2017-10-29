@@ -193,8 +193,21 @@ button {
 
 .chatbox{
     display: -webkit-box;
+    clear: both;
 }
-
+/* CHAT BOX - RIGHT */
+.chatbox_right{
+    display: -webkit-box;
+    float: right;
+    clear: both;
+}
+.addText_right{
+    color: black;
+    background: #dcf8c6;
+    border-radius: 0px 6px 6px 6px;
+    padding: 10px;
+}
+/* CHAT BOX - RIGHT */
 .addText{
     color: black;
     background: white;

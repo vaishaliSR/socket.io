@@ -28,9 +28,11 @@ $(document).ready(function() {
 // CHAT TAB FUNCTION - PROFILES TAB
 function chatTab(id) {
     var socket = io();
+   // var soctedIdd = socket.id;
+    console.log(scktid);
     var js = JSON.parse(localStorage.ids);
     for (i = 0; i < js.length; i++) {
-        if (js[i].id === id) {
+        if (js[i].id === scktid) {
             js[i].clickedId = id;
 
             socket.emit('clicked id', id);
@@ -48,8 +50,6 @@ function chatTab(id) {
     console.log(parsedId);
     socket.emit('chat tab', parsedId);
     //JSON.parse();
-
-
     // console.log(js);
     // console.log(localStorage.ids);
     // console.log(js);

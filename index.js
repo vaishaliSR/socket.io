@@ -16,40 +16,82 @@ var clickedId = "";
 app.use(express.static(path.join(__dirname, 'html')));
 
 io.on('connection', function(socket){
-	var id =  socket.id;
-  idArray.push({id : id, clickedId: 0, text :[]});
+  var id =  socket.id;
+  idArray.push({id : id, clickedId: 0, text :{}});
+
 
   fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
     //console.log(fs.readFileSync("./html/data.json").toString());
 
     socket.on('chat tab', function(id){
+
       //fs.readFileSync("./html/data.json");
       fs.writeFileSync("./html/data.json", JSON.stringify(id, null));
       idArray = id;
+
     //console.log(id, idArray);
     });
+      var sender ;
   socket.on('clicked id', function(clickedid){
     //console.log(clickedid, "clickedid");
     clickedId = clickedid;
   });
     console.log('user connected');
+//////////////////////////////////////////////
+     socket.on('val', function(senderId){
+      sender = senderId;
+      // console.log(use);
+     });
+////////////////////////////////////////////////  
     socket.on('chat push', function(msg){
       //console.log(clickedId);
     //io.emit('chat message', msg);
     //var check = JSON.parse(localStorage.ids);
-
           // console.log(idArray , "hi");
     /////////////////////////////////////////////////////////
-
+console.log(sender);
   for(var i=0; i<idArray.length; i++){
-       if(idArray[i].id == clickedId && idArray[i].clickedId != 0){
-        
+    var reciever;
+       if(idArray[i].id === socket.id){
+       
+        reciever = idArray[i].clickedId;
+        console.log(reciever, "reciever");
           // io.emit('chat message', msg);
           //console.log(idArray[i]);
-     io.to(idArray[i].id).emit('chat message');
-     io.to(idArray[i].id).emit('chat push', msg);
-     console.log(msg);
-       }
+   
+     //console.log(msg);
+
+  for(var j=0; j<idArray.length; j++){
+
+     if(idArray[j].id === reciever && idArray[j].clickedId != 0){
+          console.log(idArray[i].id, sender, idArray[i].clickedId, clickedId, "yes");
+           io.to(idArray[i].clickedId).emit('push message', msg);
+           io.to(idArray[i].id).emit('my message', msg);
+      
+     }
+      else {
+        console.log("no");
+         var sender_id = idArray[i].id;
+        console.log(idArray[i].id, sender, idArray[i].clickedId, clickedId, "no");
+        if(Object.keys(idArray[i].text).length === 0){
+          idArray[i].text[idArray[i].clickedId] = [msg];
+         fs.readFileSync("./html/data.json");  
+         fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
+        }
+        else{
+         idArray[i].text[idArray[i].clickedId].push(msg);
+
+         
+         fs.readFileSync("./html/data.json");  
+         fs.writeFileSync("./html/data.json", JSON.stringify(idArray, null));
+         //console.log(idArray);
+          io.to(idArray[i].clickedId).emit('chat message');
+           io.to(idArray[i].id).emit('my message', msg);
+        }
+      }
+ }
+    } 
+
     }
     ///////////////////////////////////////////////////////// 
     // console.log(idArray[idArray.length-1].id);
