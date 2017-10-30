@@ -2,74 +2,79 @@
 ************************* UNIVERSAL CLASSES *********************************
 ===========================================================================*/
 
+
 /* FONT EMBEDDING */
+
 @font-face {
     font-family: 'Roboto-Regular';
-    src: url('../fonts/Roboto-Regular.woff'); 
+    src: url('../fonts/Roboto-Regular.woff');
 }
+
 
 /* MAIN WIDTH CONTAINER */
-.app-container{
-        margin: auto;
-        width: 90%;
+
+.app-container {
+    margin: auto;
+    width: 90%;
 }
 
+
 /* full container width */
+
 .block {
     float: left;
     width: 100%;
 }
 
-body{
+body {
     font-family: "Roboto-Regular";
     margin: 0;
     color: white;
     background-image: url(../images/bg.png);
     background-color: #e5ddd5;
-
 }
 
-.clearfix{
+.clearfix {
     clear: both;
     display: block;
     content: "";
 }
 
-.center{
+.center {
     text-align: center;
 }
 
-
-.f50{
+.f50 {
     font-size: 50px;
     font-family: roboto;
 }
 
-.green{
+.green {
     background: #054d44;
 }
 
-.shadow{
+.shadow {
     box-shadow: 0px 2px 15px #888888;
 }
 
-.border-bottom{
+.border-bottom {
     border-bottom: 5px solid white;
-
 }
 
-.heading_color{
+.heading_color {
     color: #4a4a4a;
 }
 
-.text_color{
+.text_color {
     color: #a3a3a3;
 }
-.P_M0{
+
+.P_M0 {
     padding: 0;
     margin: 0;
 }
-.bg_none{
+
+.bg_none {
     background: none;
 }
 
@@ -78,66 +83,70 @@ button {
     border: none;
     outline: none;
 }
+
+
 /*===========================================================================
 ************************* UNIVERSAL CLASSES *********************************
 ===========================================================================*/
 
+
 /*----------------------------------------------------------------------------*/
+
 
 /*===========================================================================
 *****************************CUSTOM CLASSES ********************************
 ===========================================================================*/
 
-.header{
+.header {
     width: 100%;
     padding: 10px 0;
 }
 
-.whatsapp{
+.whatsapp {
     width: 70%;
     float: left;
 }
 
-.icons{
+.icons {
     width: 30%;
     float: right;
     text-align: right;
 }
 
-.chats{
+.chats {
     width: 50%;
     float: left;
     padding-bottom: 15px;
 }
 
-.users{
+.users {
     width: 50%;
     float: right;
     padding-bottom: 15px;
 }
 
-.navigation div p{
+.navigation div p {
     cursor: pointer;
 }
 
-.icon_child{
+.icon_child {
     width: 25%;
     text-align: center;
     vertical-align: text-bottom;
     font-size: 40px;
 }
 
-.navigation{
+.navigation {
     font-size: 25px;
     margin-top: 2%;
 }
 
-.navigation a{
+.navigation a {
     color: white;
     text-decoration: none;
 }
 
-.picture img{
+.picture img {
     border-radius: 50%;
 }
 
@@ -191,31 +200,38 @@ button {
     padding: 2% 0;
 }
 
-.chatbox{
+.chatbox {
     display: -webkit-box;
     clear: both;
 }
+
+
 /* CHAT BOX - RIGHT */
-.chatbox_right{
+
+.chatbox_right {
     display: -webkit-box;
     float: right;
     clear: both;
 }
-.addText_right{
+
+.addText_right {
     color: black;
     background: #dcf8c6;
-    border-radius: 0px 6px 6px 6px;
+    border-radius: 6px 0px 6px 6px;
     padding: 10px;
 }
+
+
 /* CHAT BOX - RIGHT */
-.addText{
+
+.addText {
     color: black;
     background: white;
     border-radius: 0px 6px 6px 6px;
     padding: 10px;
 }
 
-.inputBox{
+.inputBox {
     width: 99.5%;
     margin: 0 0.5% auto;
     bottom: 0;
@@ -228,7 +244,7 @@ button {
     float: left;
 }
 
-.input{
+.input {
     width: 100%;
     padding: 15px;
     border-radius: 23px;
@@ -243,17 +259,17 @@ button {
     text-align: right;
 }
 
-.send img{
+.send img {
     background: #006256;
     padding: 13px;
     border-radius: 25px;
 }
 
-.userInfoheader{
+.userInfoheader {
     width: 100%;
 }
 
-.userInfo{
+.userInfo {
     width: 100%;
     background: #075e54;
     padding: 20px 0;
@@ -265,24 +281,28 @@ button {
     float: right;
     padding: 1.1% 0;
 }
- .closeChat{
+
+.closeChat {
     float: right;
     padding: 0px 20px 0 0;
     cursor: pointer;
 }
+
+
 /*===========================================================================
 *****************************CUSTOM CLASSES ********************************
 ===========================================================================*/
 
+
 /*----------------------------------------------------------------------------*/
+
 
 /*===========================================================================
 ***************************** MEDIA QUERY ********************************
 ===========================================================================*/
 
-@media only screen and (max-width: 736px) {
+@media only screen and (max-width: 736px) {}
 
-}
 
 /*===========================================================================
 ***************************** MEDIA QUERY ********************************
