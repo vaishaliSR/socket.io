@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Default style, feel free to remove if not needed. */
+body, body * {
+	vertical-align: baseline;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+
+#container{
+	width: 300px;
+	height: 250px;
+	position: relative;
+	top: 0px;
+	left:0px;
+	overflow: hidden;
+}
+
+#content{
+	position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;
+    background-color: #fff;
+    z-index: 100;
+    overflow:hidden;
+    XXorder: 1px solid black;
+    opacity: 0;
+}
+
+#image1{
+    background-image: url("images/300x250px_Frame1.jpg");
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;    
+    z-index: 2;    
+    opacity: 0;
+}
+#image2{
+    background-image: url("images/300x250px_Frame2.jpg");
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;    
+    z-index: 2;    
+    opacity: 0;
+}
+#image3{
+    background-image: url("images/300x250px_Frame3.jpg");
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;    
+    z-index: 2;    
+    opacity: 0;
+}
+#copy0 {
+    background-image: url("images/copy0.png");
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;    
+    z-index: 3;    
+    opacity: 0;
+}
+#cta {
+    background-image: url("images/cta.png");
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;    
+    z-index: 3;    
+    opacity: 0;
+}
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}

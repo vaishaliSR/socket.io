@@ -11,4 +11,4 @@ TODAY'S TASK
 
      - current click id depends on the last click - change it - for this you can take the the clicked id and the socket id and then can match / the clicked id of the same socket can help
      - need to push the message if click id is not same as sender's id 
-     -  #dcf8c6
+     -  [{"id":"n4K5gk_o1WaqbFMvAAAK","clickedId":0,"text":{}},{"id":"U9mtHu0K0YNAdZRIAAAL","clickedId":"n4K5gk_o1WaqbFMvAAAK","text":{}}]
